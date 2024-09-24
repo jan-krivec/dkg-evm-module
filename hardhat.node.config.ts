@@ -20,8 +20,8 @@ const config: HardhatUserConfig = {
   networks: {
     localhost: {
       environment: 'development',
-      url: rpc('localhost'),
-      saveDeployments: false,
+      url: 'http://localhost:7545',
+      chainId: 5777,
     },
     hardhat: {
       environment: 'development',
@@ -29,8 +29,8 @@ const config: HardhatUserConfig = {
       gas: 15_000_000,
       gasMultiplier: 1,
       blockGasLimit: 30_000_000,
-      hardfork: 'shanghai',
-      accounts: { count: 1000 },
+      hardfork: 'london',
+      accounts: { count: 20 },
       throwOnTransactionFailures: true,
       throwOnCallFailures: true,
       loggingEnabled: false,
@@ -69,11 +69,6 @@ const config: HardhatUserConfig = {
         },
       },
     ],
-    overrides: {
-      'contracts/v1/MultiSigWallet.sol': {
-        version: '0.4.15',
-      },
-    },
   },
   paths: {
     sources: './contracts',
